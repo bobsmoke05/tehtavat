@@ -1,5 +1,4 @@
 yritys = 0
-
 while True:
     if yritys == 5:
         print("Pääsy evätty")
