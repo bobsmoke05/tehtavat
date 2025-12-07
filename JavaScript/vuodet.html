@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Karkausvuosi tester 6767</h1>
+
+    <p id="Tulos"> Venaa</p>
+
+    <script>
+        const vuosi = parseInt(prompt("Anna vuosi"));
+
+        let onko;
+
+        if (vuosi % 4 === 0) {
+            if (vuosi % 100 === 0) {
+                if (vuosi % 400 === 0) {
+                    onko = "Kyllä";
+                }
+                else {
+                    onko = "Ei";
+                }
+            }
+            else {
+                onko = "Kyllä";
+            }
+        }
+        else {
+            onko = "Ei";
+        }
+
+        document.getElementById("Tulos").innerHTML = onko;
+    </script>
+</body>
+</html>
