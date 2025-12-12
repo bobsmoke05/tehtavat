@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Roller</title>
+</head>
+<body>
+    <h1>Noppapeli</h1>
+
+    <p>Noppa pyörii kunnes tulee 6</p>
+
+    <ul id="rollOutput">
+    </ul>
+
+    <script>
+        function rollDice() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+
+        const outputList = document.getElementById("rollOutput");
+
+        let currentRoll = 0;
+        let rollCount = 0;
+
+        do {
+            currentRoll = rollDice();
+            rollCount++;
+
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `Roll ${rollCount}: Result is ${currentRoll}`;
+            outputList.appendChild(listItem);
+        } while (currentRoll !== 6);
+    </script>
+</body>
+</html>

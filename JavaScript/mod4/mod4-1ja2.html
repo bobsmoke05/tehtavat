@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVMaze Series Search</title>
+</head>
+<body>
+
+    <h1>Find a TV Series</h1>
+
+    <form id="search-form">
+        <input id="query" name="q" type="text" placeholder="Enter TV series name...">
+        <button type="submit">Search</button>
+    </form>
+
+    <p>Results will be printed to the console.</p>
+
+    <script>
+        const searchForm = document.getElementById('search-form');
+        const queryInput = document.getElementById('query');
+
+        searchForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const seriesQuery = queryInput.value.trim();
+
+            if (!seriesQuery) {
+                console.log("Please enter a series name.");
+                return;
+            }
+
+            const apiUrl = `https://api.tvmaze.com/search/shows?q=${encodeURIComponent(seriesQuery)}`;
+
+            try {
+                const response = await fetch(apiUrl);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                console.log("--- Search Results ---");
+                console.log(data);
+
+            } catch (error) {
+                console.error("Fetch operation failed:", error);
+            }
+        });
+    </script>
+
+</body>
+</html>
