@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompanyX - Modern Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f7f7f9;
+            color: #333;
+        }
+
+        .container {
+            width: 850px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            padding-bottom: 40px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            background-color: #4a6fa5;
+            color: white;
+            height: 60px;
+        }
+
+        .site-logo {
+            background-color: #334e6f;
+            height: 100%;
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        .nav {
+            display: flex;
+            padding-right: 20px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: #334e6f;
+        }
+
+        .page-section {
+            padding: 20px 40px;
+            min-height: 800px;
+            border-bottom: 5px solid #e0e0e0;
+        }
+
+        .page-section:last-child {
+            border-bottom: none;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #4a6fa5;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .overlay-bg {
+            position: relative;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .overlay-bg::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: -100px;
+            right: -100px;
+            bottom: -200px;
+            background: radial-gradient(circle at 10% 20%, rgba(74, 111, 165, 0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 80%, rgba(74, 111, 165, 0.15) 0%, transparent 35%);
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        #home-page {
+            text-align: center;
+        }
+
+        #home-page h1 {
+            color: #333;
+            margin-top: 60px;
+            font-size: 3.5em;
+        }
+
+        .main-img-placeholder {
+            width: 100%;
+            height: 350px;
+            margin: 30px 0;
+            background-color: #6699cc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            font-weight: 300;
+            background-image: url('https://picsum.photos/800/400?random=1');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .home-text {
+            text-align: center;
+            max-width: 600px;
+            margin: 40px auto 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        #products-page {
+            text-align: left;
+        }
+
+        .top-banner-img {
+            width: 100%;
+            height: 250px;
+            margin-bottom: 20px;
+            background-color: #a3c4f3;
+            background-image: url('https://picsum.photos/800/250?random=2');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            width: 30%;
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card h3 {
+            color: #4a6fa5;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+            background-color: #c3daf5;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-img-1 { background-image: url('https://picsum.photos/300/200?random=3'); }
+        .product-img-2 { background-image: url('https://picsum.photos/300/200?random=4'); }
+        .product-img-3 { background-image: url('https://picsum.photos/300/200?random=5'); }
+
+        .product-text-title {
+            font-weight: 700;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .product-card p {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        #contact-page {
+            display: flex;
+            gap: 40px;
+            padding-top: 60px;
+        }
+
+        .contact-info {
+            width: 35%;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .contact-info strong {
+            display: block;
+            color: #4a6fa5;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .map-placeholder {
+            width: 60%;
+            height: 400px;
+            background-color: #6699cc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            font-weight: 300;
+            border: 5px solid #334e6f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="site-logo">Site Logo</div>
+            <nav class="nav">
+                <a href="#home-page">Home</a>
+                <a href="#products-page">Products</a>
+                <a href="#contact-page">Contact</a>
+            </nav>
+        </header>
+
+        <section id="home-page" class="page-section overlay-bg">
+            <h1 class="page-title">CompanyX</h1>
+            <div class="main-img-placeholder">
+                <span style="background-color: rgba(0,0,0,0.4); padding: 10px 20px;">Hero Image</span>
+            </div>
+            <p class="home-text">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit. Voluptates error ipsum autem officia eveniet nostrum. Praesentium deleniti animi possimus porro, voluptatibus quos ipsam id voluptatem distinctio rem voluptatum saepe enim.
+            </p>
+            <p class="home-text">
+                Reiciendis labore atque iure perferendis, ut quidem distinctio suscipit, voluptatibus aperiam repudiandae aspernatur, nostrum debitis. Ad molestiae earum voluptatum deserunt doloribus obcaecati?
+            </p>
+        </section>
+
+        <section id="products-page" class="page-section overlay-bg">
+            <h1 class="page-title">Our Products</h1>
+
+            <div class="top-banner-img"></div>
+
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates error ipsum autem officia eveniet nostrum. Praesentium deleniti animi possimus porro, voluptatibus quos ipsam id voluptatem distinctio rem voluptatum saepe enim?
+            </p>
+
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <h3>Product 1</h3>
+                    <div class="product-img product-img-1"></div>
+                    <div class="product-text-title">Product 1 Sub-Title</div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Doloremque officia aperiam ratione consectetur pariatur quasi quis et animi esse laborum consequatur hic, officiis libero accusantium quaerat asperiores non doloribus numquam.
+                    </p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Product 2</h3>
+                    <div class="product-img product-img-2"></div>
+                    <div class="product-text-title">Product 2 Sub-Title</div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Doloremque officia aperiam ratione consectetur pariatur quasi quis et animi esse laborum consequatur hic, officiis libero accusantium quaerat asperiores non doloribus numquam.
+                    </p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Product 3</h3>
+                    <div class="product-img product-img-3"></div>
+                    <div class="product-text-title">Product 3 Sub-Title</div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Doloremque officia aperiam ratione consectetur pariatur quasi quis et animi esse laborum consequatur hic, officiis libero accusantium quaerat asperiores non doloribus numquam.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact-page" class="page-section overlay-bg">
+            <div class="contact-info">
+                <h1>Contact us</h1>
+                <strong>Visit us at:</strong>
+                <p>
+                    CompanyX<br>
+                    Karaportti 2<br>
+                    02340 ESPOO<br>
+                    Finland
+                </p>
+                <strong>Email:</strong>
+                <p>
+                    <a href="mailto:info@metropolia.fi" style="color: #4a6fa5;">info@metropolia.fi</a>
+                </p>
+                <strong>Phone:</strong>
+                <p>
+                    +358 (0)401231233
+                </p>
+            </div>
+
+            <div class="map-placeholder">
+                MAP Placeholder
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
